@@ -2,7 +2,6 @@
 본 코드에 사용된 방법은 가장 보편적인 방법인 '표준화(standardization)'이다.
 
 ```python
-
 fish_length = [25.4, 26.3, 26.5, 29.0, 29.0, 29.7, 29.7, 30.0, 30.0, 30.7, 31.0, 31.0,
                 31.5, 32.0, 32.0, 32.0, 33.0, 33.0, 33.5, 33.5, 34.0, 34.0, 34.5, 35.0,
                 35.0, 35.0, 35.0, 36.0, 36.0, 37.0, 38.5, 38.5, 39.5, 41.0, 41.0, 9.8,
@@ -22,7 +21,6 @@ from sklearn.model_selection import train_test_split
 train_input, test_input, train_target, test_target = train_test_split(
     fish_data, fish_target, stratify=fish_target, random_state=42) # stratify - 클래스 비율에 맞게 테스트 데이터 설정, random_state - 랜덤 시드 정수 설정
 
-import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 
 kn = KNeighborsClassifier()
@@ -30,11 +28,12 @@ kn.fit(train_input, train_target)
 
 kn.score(test_input, test_target)
 
-mean = np.mean(train_input, axis = 0)
-std = np.std(train_input, axis = 0)
-
+mean = np.mean(train_input, axis = 0) #훈련 데이터의 평균
+std = np.std(train_input, axis = 0) #훈련 데이터의 표준편차
 train_scaled = (train_input - mean) / std # 데이터 전처리 - 표준화(standardization) 과정
-new = ([25,150] - mean) / std
+new = ([25,150] - mean) / std #새로운 표본 또한 표준화한 후에 추가
+
+import matplotlib.pyplot as plt
 plt.scatter(train_scaled[:,0], train_scaled[:,1])
 plt.scatter(new[0], new[1], marker='^')
 plt.xlabel('length')
@@ -47,16 +46,15 @@ test_scaled = (test_input - mean) / std '''테스트 데이터를 전처리 할 
 kn.score(test_scaled, test_target)
 
 print(kn.predict([new]))
+#output: 1
 
-distances, indexes = kn.kneighbors([new])
+distances, indexes = kn.kneighbors([new]) #new로부터 가까운 5개 이웃의 거리와 인덱스
 plt.scatter(train_scaled[:,0], train_scaled[:,1])
 plt.scatter(new[0], new[1], marker='^')
 plt.scatter(train_scaled[indexes,0], train_scaled[indexes,1], marker='D')
 plt.xlabel('length')
 plt.ylabel('weight')
 plt.show()
-
-print(distances)
 ```
 ![image](https://github.com/user-attachments/assets/5831e8b0-0366-4d47-9163-38c00c095635)
 <img width="585" height="432" alt="Image" src="https://github.com/user-attachments/assets/e44dfc37-8a8e-4309-8635-354bd68ea170" />
