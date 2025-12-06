@@ -10,9 +10,17 @@ K-최근접 이웃 알고리즘 또한 지도 학습 알고리즘이다. 지도 
 
 > **테스트 세트(test set)**: 모델의 성능을 평가할 때 사용하는 데이터이다. 전체 데이터에서 20% ~ 30% 정도를 테스트 세트로 사용하는 경우가 많다. 전체 데이터가 아주 크다면 1%만 덜어내도 충분할 수 있다.
 
+> **샘플(sample)**: 사용하고자 하는 특성을 모두 가진 하나의 데이터
+
+> **샘플링 편향(sampling bias)**: 훈련 세트와 테스트 세트가 잘못 만들어져 전체 데이터를 대표하지 못하는 현상
+
 ## 핵심 패키지와 함수
+ ### numpy
+>python의 대표적인 배열 라이브러리이다. 고차원의 배열을 손쉽게 만들고 조작할 수 있는 간편한 도구를 많이 제공한다.
 
-
+>**seed()**: 넘파이에서 난수를 생성하기 위한 정수 초깃값을 지정하는 함수. 초깃값이 같으면 동일한 난수를 생성한다.
+>**arange()**: 일정한 간격의 정수 또는 실수 배열을 만들며, 기본 간격은 1이다. 매개변수가 하나이면 종료숫자, 둘이면 시작, 종료 숫자를 의미하며 매개변수가 3개면 마지막 매개변수가 간격을 나타낸다.
+>**shuffle()**: 주어진 배열을 랜덤하게 섞는다. seed() 함수의 영향을 받는다.
 
 ```python
 fish_length = [25.4, 26.3, 26.5, 29.0, 29.0, 29.7, 29.7, 30.0, 30.0, 30.7, 31.0, 31.0,
@@ -38,7 +46,7 @@ target_arr = np.array(fish_target)
 np.random.seed(42) #numpy의 random 함수의 초기 정수 시드를 42로 지정
 index = np.arrange(49) # 0~48의 정수가 순서대로 담긴 index 배열 생성
 """
-np.random.shufle(index) #index 배열을 랜덤으로 섞음
+np.random.shuffle(index) #index 배열을 랜덤으로 섞음
 
 train_input = input_arr[index[:35]]
 train_target = target_arr[index[:35]]
@@ -54,7 +62,7 @@ plt.xlabel('length')
 plx.ylabel('weight')
 plt.show()
 
-kn.fit(train_input, train_target)
+kn.fit(train_input, train_target) #사이킷런은 데이터(배열)이 행: 샘플, 열: 특성 으로 구성되어 있을 것으로 기대한다.
 
 kn.score(test_input, test_target)
 #output: 1.0 (정확도 100%)
