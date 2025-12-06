@@ -36,7 +36,7 @@ fish_data = np.column_stack(  (fish_length, fish_weight)  ) """column_stack()은
                                                                                [ 26.3 290. ]
                                                                                [ 26.5 340. ]
                                                                                [ 29.  363. ]
-                                                                              [ 29.  430. ]]
+                                                                               [ 29.  430. ]]
                                                             """
 
 fish_target = np.concatenate( (np.ones(35), np.zeros(14)) ) """concatenate()는 매개변수로 받은 배열들을 1차원으로 연결한다.
