@@ -40,7 +40,8 @@ fish_target = np.concatenate( (np.ones(35), np.zeros(14)) ) """concatenate()는 
 from sklearn.model_selection import train_test_split
 
 train_input, test_input, train_target, test_target = train_test_split(
-    fish_data, fish_target, stratify=fish_target, random_state=42) # stratify - 클래스 비율에 맞게 테스트 데이터 설정, random_state - 랜덤 시드 정수 설정
+    fish_data, fish_target, stratify=fish_target, random_state=42) '''stratify - 클래스 비율에 맞게 테스트 데이터 설정,
+                                                                      random_state - 랜덤 시드 정수 설정'''
 
 from sklearn.neighbors import KNeighborsClassifier
 
