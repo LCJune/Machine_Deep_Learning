@@ -31,7 +31,13 @@ fish_weight = [242.0, 290.0, 340.0, 363.0, 430.0, 450.0, 500.0, 390.0, 450.0, 50
 import numpy as np 
 
 fish_data = np.column_stack(  (fish_length, fish_weight)  ) """column_stack()은 매개변수로 받은 배열들의 같은 인덱스의
-                                                               원소를 한 행에 위치하도록 하여 새로운 배열을 만든다."""
+                                                               원소를 한 행에 위치하도록 하여 새로운 배열을 만든다.
+                                                                              [[ 25.4 242. ]
+                                                                               [ 26.3 290. ]
+                                                                               [ 26.5 340. ]
+                                                                               [ 29.  363. ]
+                                                                              [ 29.  430. ]]
+                                                            """
 
 fish_target = np.concatenate( (np.ones(35), np.zeros(14)) ) """concatenate()는 매개변수로 받은 배열들을 1차원으로 연결한다.
                                                                ones()와 zeros()는 매개변수로 받은 정수의 개수만큼 각각 1, 0
