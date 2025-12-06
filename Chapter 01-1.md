@@ -8,6 +8,7 @@
 
    ##### 사이킷런(scikit-learn)
 <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/61da02c9-574e-4a5a-8e2c-f3a6b92b8e36" />
+     
      대표적인 머신러닝 라이브러리로, 파이썬 API를 사용한다. 사이킷런에 포함된 머신러닝 알고리즘들은 안정적이고 성능이 검증된 것들이다.
 
 
@@ -17,8 +18,10 @@
 
    ##### 텐서플로(TensorFlow)
 <img width="400" height="300" alt="Image" src="https://github.com/user-attachments/assets/43ae1b5a-3aa1-4632-8b9d-744f5c287793" />
+    
     구글에서 발표한 딥러닝 라이브러리로, 사용하기 쉬운 파이썬 API를 제공한다.
   
    ##### 파이토치(PyTorch)
 <img width="500" height="102" alt="image" src="https://github.com/user-attachments/assets/ffacc42e-c250-4238-b222-d7c392b9e84c" />
+    
     메타에서 발표한 딥러닝 라이브러리, 사용하기 쉬운 파이썬 API를 제공한다.
