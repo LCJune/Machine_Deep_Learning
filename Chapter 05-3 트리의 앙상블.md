@@ -22,5 +22,5 @@
 > Δ = SSEparent − (SSEleft + SSEright) 가 최대가 되도록 분할한다.
 > Δ가 최대가 되면 각 리프 노드 내의 pseudo-residual 분산이 감소하며, 이는 동일한 상수 보정값을 적용해도 해당 노드에 속한 샘플들의 손실이 효과적으로 감소함을 의미한다.  
 > 이 과정은 실제 클래스와 무관하게 이루어지며, 리프 노드의 값은 해당 노드 내 샘플들의 손실을 최소화하도록 계산된다.
-> 전체 모델을 수식으로 표현하면 다음과 같다.
+> 전체 모델을 수식으로 표현하면 다음과 같다.  
 > <img width="264" height="66" alt="image" src="https://github.com/user-attachments/assets/e0d4ad1b-56eb-42f7-b5b2-d2abe4d57c08" />
