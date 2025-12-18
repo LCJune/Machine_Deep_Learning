@@ -26,4 +26,112 @@
 > <img width="264" height="66" alt="image" src="https://github.com/user-attachments/assets/e0d4ad1b-56eb-42f7-b5b2-d2abe4d57c08" />  
 > F0(x): 초기 상수 
 > η: learning rate 
-> 각 ℎ𝑚(𝑥): 입력 의존적 보정 함수 
+> 각 ℎ𝑚(𝑥): 입력 의존적 보정 함수  
+> 그레디언트 부스팅의 속도를 개선한 버전인 히스토그램 기반 그레디언트 부스팅이 안정적인 결과와 높은 성능으로 인기가 높다.
+
+
+## 코드 전문
+```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+wine = pd.read_csv('https://bit.ly/wine_csv_data')
+
+data = wine[['alcohol', 'sugar', 'pH']]
+target = wine['class']
+
+train_input, test_input, train_target, test_target = train_test_split(
+    data, target, test_size=0.2, random_state=42)
+
+### Randomized Forest
+from sklearn.model_selection import cross_validate
+from sklearn.ensemble import RandomForestClassifier
+
+rf = RandomForestClassifier(n_jobs=-1, random_state=42)
+"""
+cross_validate() 함수는 dictionary를 반환한다.
+key는 'fit_time', 'score_time', 'test_score', return_train_score를 True로 지정 시 'train_score', 'train_accuracy', 'train_f1'이 추가된다.
+"""
+scores = cross_validate(rf, train_input, train_target, return_train_score=True, n_jobs=-1)
+
+print(np.mean(scores['train_score']), np.mean(scores['test_score']))
+rf.fit(train_input, train_target)
+print(rf.feature_importances_)
+rf = RandomForestClassifier(oob_score=True, n_jobs=-1, random_state=42)
+
+rf.fit(train_input, train_target)
+print(rf.oob_score_)
+
+### Extra Tree
+from sklearn.ensemble import ExtraTreesClassifier
+
+et = ExtraTreesClassifier(n_jobs=-1, random_state=42)
+scores = cross_validate(et, train_input, train_target,
+                        return_train_score=True, n_jobs=-1)
+
+print(np.mean(scores['train_score']), np.mean(scores['test_score']))
+
+et.fit(train_input, train_target)
+print(et.feature_importances_)
+
+### gradient boosting
+from sklearn.ensemble import GradientBoostingClassifier
+
+gb = GradientBoostingClassifier(random_state=42)
+scores = cross_validate(gb, train_input, train_target,
+                        return_train_score=True, n_jobs=-1)
+
+print(np.mean(scores['train_score']), np.mean(scores['test_score']))
+
+gb = GradientBoostingClassifier(n_estimators=500, learning_rate=0.2,
+                                random_state=42)
+scores = cross_validate(gb, train_input, train_target,
+                        return_train_score=True, n_jobs=-1)
+
+print(np.mean(scores['train_score']), np.mean(scores['test_score']))
+
+gb.fit(train_input, train_target)
+print(gb.feature_importances_)
+
+### hist gradient boosting
+from sklearn.ensemble import HistGradientBoostingClassifier
+
+hgb = HistGradientBoostingClassifier(random_state=42)
+scores = cross_validate(hgb, train_input, train_target,
+                        return_train_score=True, n_jobs=-1)
+
+print(np.mean(scores['train_score']), np.mean(scores['test_score']))
+from sklearn.inspection import permutation_importance
+
+hgb.fit(train_input, train_target)
+result = permutation_importance(hgb, train_input, train_target, n_repeats=10,
+                                random_state=42, n_jobs=-1)
+print(result.importances_mean)
+[0.08876275 0.23438522 0.08027708]
+result = permutation_importance(hgb, test_input, test_target, n_repeats=10,
+                                random_state=42, n_jobs=-1)
+print(result.importances_mean)
+hgb.score(test_input, test_target)
+
+# XGBoost
+from xgboost import XGBClassifier
+
+xgb = XGBClassifier(tree_method='hist', random_state=42)
+xgb._estimator_type = "classifier"
+scores = cross_validate(xgb, train_input, train_target,
+                        return_train_score=True, n_jobs=-1)
+
+print(np.mean(scores['train_score']), np.mean(scores['test_score']))
+LightGBM
+
+### LightGBM
+from lightgbm import LGBMClassifier
+
+lgb = LGBMClassifier(random_state=42)
+scores = cross_validate(lgb, train_input, train_target,
+                        return_train_score=True, n_jobs=-1)
+
+print(np.mean(scores['train_score']), np.mean(scores['test_score']))
+
+```
