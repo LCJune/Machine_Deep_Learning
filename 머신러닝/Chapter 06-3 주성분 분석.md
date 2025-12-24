@@ -18,3 +18,14 @@ PCA에서, 각각의 주성분 벡터 z의 수식적 정의는 다음과 같다.
   **전체 데이터셋**의 공분산에 영향을 받는다.  
 * PCA의 1번 주성분은 다음을 만족한다.  ​
 > <img width="481" height="185" alt="image" src="https://github.com/user-attachments/assets/1b75a06f-fa6b-4f68-bf7f-c3f7c7019be8" />
+
+
+## PCA 클래스
+> python의 클래스인 PCA는  
+> 고차원 데이터를 분산이 최대가 되도록 회전시킨 뒤,  
+> 그 좌표계에서 일부 축만 남겨 데이터를 표현·복원하는 변환기(transformer)이다.
+
+**핵심 속성(attribute)**  
+* *components_*
+  > pca.components_.shape
+  > # (n_components, n_features)
