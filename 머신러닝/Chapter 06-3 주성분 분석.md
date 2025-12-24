@@ -9,7 +9,7 @@
 
 PCA에서, 각각의 주성분 벡터 z의 수식적 정의는 다음과 같다.  
 이미지 하나 x(10000 차원 벡터)에 대해:  
-<img width="176" height="31" alt="image" src="https://github.com/user-attachments/assets/00ab9176-cda8-47d3-9ba9-1437b41a0754" />
+<img width="176" height="31" alt="image" src="https://github.com/user-attachments/assets/00ab9176-cda8-47d3-9ba9-1437b41a0754" />  
 전개하면  
  <img width="522" height="188" alt="image" src="https://github.com/user-attachments/assets/0bf6ea55-71d3-4bf5-973a-e42406457d6d" />
 ​
