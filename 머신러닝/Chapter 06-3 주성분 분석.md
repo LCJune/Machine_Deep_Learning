@@ -19,6 +19,7 @@ PCA에서, 각각의 주성분 벡터 z의 수식적 정의는 다음과 같다.
 * PCA의 1번 주성분은 다음을 만족한다.  ​
 > <img width="481" height="185" alt="image" src="https://github.com/user-attachments/assets/1b75a06f-fa6b-4f68-bf7f-c3f7c7019be8" />
 
+데이터
 
 ## PCA 클래스
 > python의 클래스인 PCA는  
@@ -60,7 +61,9 @@ PCA에서, 각각의 주성분 벡터 z의 수식적 정의는 다음과 같다.
 ># (n_samples, n_components)
 >```
 transform(n_components) 메서드는 데이터셋을 n개 주성분에 대해 transform한다.  
-데이터 셋에서 각 샘플의 특성은 그 샘플의 각 주성분에 대한 좌표값(zk)이다.  
+변환된 데이터 셋에서 각 샘플의 특성은 그 샘플의 각 주성분에 대한 좌표값(zk)이다.  
 즉, 해당 주성분 좌표계에서 한 샘플의 위치이다.
 
 **inverse_transform()**
+아래 수식을 바탕으로 데이터를 원 형태로 복구한다.  
+<img width="476" height="170" alt="image" src="https://github.com/user-attachments/assets/ea89d609-f3c2-4b3e-9176-b99f7c9aeeaf" />
