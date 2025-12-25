@@ -54,4 +54,13 @@ PCA에서, 각각의 주성분 벡터 z의 수식적 정의는 다음과 같다.
   고유값과 직접 연결됨  
 
 **transform()**
-```python
+>```python
+>pca_data = pca.transform(data_set) # 2차원 격자 구조 입력 요구
+>print(pca_data.shape)
+># (n_samples, n_components)
+>```
+transform(n_components) 메서드는 데이터셋을 n개 주성분에 대해 transform한다.  
+데이터 셋에서 각 샘플의 특성은 그 샘플의 각 주성분에 대한 좌표값(zk)이다.  
+즉, 해당 주성분 좌표계에서 한 샘플의 위치이다.
+
+**inverse_transform()**
