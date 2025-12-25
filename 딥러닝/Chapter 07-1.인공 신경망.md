@@ -12,6 +12,16 @@ GPU는 행렬과 벡터 연산에 최적화 되어 있기 때문에 곱셈과 �
 케라스의 백엔드로 쓰이는 라이브러리로는 최신버전인 케라스3.0 기준으로 텐서플로, 파이토치(Pytorch), 잭스(Jax)가 있다.
 
 **층(layer)**
-인공 
+인공 신경망 모델의 구조는 크게 3가지 층으로 나뉜다.  
+> <img width="709" height="437" alt="image" src="https://github.com/user-attachments/assets/bcf130ff-f06f-40af-8d22-a421b94c5329" />  
+
+* 입력층: 원시 특성(feature)를 모델 내부로 전달한다.  
+  별다른 계산을 수행하지 않고 데이터의 형태만 정의한다.  
+  입력층의 노드 개수는 특성의 수와 같다.  
+
+* 은닉층: 신경망의 핵심 연산부이며, 여러개가 존재할 수 있다.
+  각 은닉층에서 수행되는 연산은 다음과 같다.  
+  <img width="569" height="751" alt="image" src="https://github.com/user-attachments/assets/ac796e66-7370-4a33-97d0-7c654c8704b5" />
+
 
 **
