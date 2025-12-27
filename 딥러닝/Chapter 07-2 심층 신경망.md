@@ -1,4 +1,4 @@
-## 핵심 키워드
+<img width="500" height="153" alt="image" src="https://github.com/user-attachments/assets/ac52463a-90aa-431e-9d5e-22e7bd076e31" />## 핵심 키워드
 **심층 신경망(Deep Neural Network, DNN)**  
 > 2개 이상의 층을 포함한 신경망을 이르는 말이다. 종종 다층 인공 신경망, 심층 신경망, 딥러닝을 같은 의미로 사용한다.  
 
@@ -11,8 +11,31 @@
 머신러닝·딥러닝 모델에서 손실 함수(loss function)를 최소화하도록 모델의 파라미터(가중치, 편향)를 어떻게, 어떤 규칙으로 업데이트할지 정의한 알고리즘을 의미한다.  
 > <img width="472" height="376" alt="image" src="https://github.com/user-attachments/assets/1f265883-e1b0-4e3f-a03b-37e8e4b633ac" />
  
-대표적인 옵티마이저의 종류는 다음과 같다.
-> <img width="397" height="701" alt="image" src="https://github.com/user-attachments/assets/ec1abb40-1f43-49bf-b0e7-6642ed77694d" />
+대표적인 옵티마이저의 종류로는 SGD, Momentum, Nesterove Momentum, Adagrad, RMSprop, Adam 등이 있다.
+
+위 옵티마이저들은 확률적 경사 하강법을 기본 구조로 가지고 있다. 가장 일반적인 형태로는 다음과 같다.  
+<img width="494" height="157" alt="image" src="https://github.com/user-attachments/assets/6b1dbf8c-0e56-4158-a1a3-19f8e70d8455" />
+
+### 1. SGD
+> <img width="470" height="117" alt="image" src="https://github.com/user-attachments/assets/d45513ad-1730-41e6-85d4-3cf6b7416f31" />
+
+### 2. Momentum
+> <img width="500" height="153" alt="image" src="https://github.com/user-attachments/assets/66a8c03c-3ce5-4ee5-b08d-acdaa7f713d9" />
+
+### 3. Nesterov Momentum
+
+### 4. Adagrad
+> <img width="526" height="145" alt="image" src="https://github.com/user-attachments/assets/3dece0cb-1e92-4738-b933-2a032833b214" />
+
+### 5. RMSprop
+>
+
+### 6. Adam
+> <img width="512" height="139" alt="image" src="https://github.com/user-attachments/assets/03bf518a-2a28-463b-98ea-6947de3c3b83" />
+> <img width="500" height="138" alt="image" src="https://github.com/user-attachments/assets/a7fed19b-8b25-4c31-b6b6-092ecf885b13" />
+
+
+
 
 
 
