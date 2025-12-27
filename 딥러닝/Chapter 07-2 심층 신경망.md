@@ -18,6 +18,8 @@
 
 ### 1. SGD
 > <img width="470" height="117" alt="image" src="https://github.com/user-attachments/assets/d45513ad-1730-41e6-85d4-3cf6b7416f31" />
+> <img width="268" height="24" alt="image" src="https://github.com/user-attachments/assets/14c762f7-acd1-4312-a1a7-8b83aa95c62e" />
+
 
 ### 2. Momentum
 > <img width="500" height="153" alt="image" src="https://github.com/user-attachments/assets/66a8c03c-3ce5-4ee5-b08d-acdaa7f713d9" />
