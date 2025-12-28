@@ -26,12 +26,24 @@
 > <img width="500" height="153" alt="image" src="https://github.com/user-attachments/assets/66a8c03c-3ce5-4ee5-b08d-acdaa7f713d9" />
 
 ### 3. Nesterov Momentum
-일반적인 Momentum의 경우, 
+일반적인 Momentum의 경우, 관성대로 이동함으로서 이동 방향이 어느정도 정해져 있다.  
+그럼에도 현재 위치를 기준으로 gradient를 계산하므로, 다음에 나올 지형(경사)를 미리 보지 못한다.  
+Neterov Momentum은 현재 위치에서 momentum만큼 미리 가본 후, 해당 위치에서 gradient를 계산한다.  
+> <img width="131" height="36" alt="image" src="https://github.com/user-attachments/assets/ec70e557-8449-4720-b74a-8ba67321cfc4" />
+> <img width="184" height="69" alt="image" src="https://github.com/user-attachments/assets/e58b5a0d-5724-4126-9317-5a2f9adfdfa5" />
+
+
+
 ### 4. Adagrad
 > <img width="526" height="145" alt="image" src="https://github.com/user-attachments/assets/3dece0cb-1e92-4738-b933-2a032833b214" />
 
-### 5. RMSprop
->
+### 5. RMSprop  
+Adagrad의 경우 그레디언트 제곱의 누계값이 수렴하지 않고 증가하면 학습률이 영구적으로 0에 가까워지는 문제가 생긴다.  
+RMSprop은 gradient의 제곱을 전부 누적하지 않고, 비교적 최근 gradient 값들만 지수적으로 평균을 낸다.  
+> <img width="520" height="289" alt="image" src="https://github.com/user-attachments/assets/ad3b91af-09fc-4b3e-8942-c09028afc167" />
+> <img width="351" height="232" alt="image" src="https://github.com/user-attachments/assets/adfde11e-ae78-48af-8a0b-ef29a60e13d5" />  
+
+
 
 ### 6. Adam
 > <img width="512" height="139" alt="image" src="https://github.com/user-attachments/assets/03bf518a-2a28-463b-98ea-6947de3c3b83" />
