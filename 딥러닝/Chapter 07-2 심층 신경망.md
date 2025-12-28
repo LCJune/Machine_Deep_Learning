@@ -1,4 +1,4 @@
-<img width="500" height="153" alt="image" src="https://github.com/user-attachments/assets/ac52463a-90aa-431e-9d5e-22e7bd076e31" />## 핵심 키워드
+## 핵심 키워드
 **심층 신경망(Deep Neural Network, DNN)**  
 > 2개 이상의 층을 포함한 신경망을 이르는 말이다. 종종 다층 인공 신경망, 심층 신경망, 딥러닝을 같은 의미로 사용한다.  
 
