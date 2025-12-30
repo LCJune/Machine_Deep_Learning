@@ -73,8 +73,8 @@ for i in range(2):
 plt.show()
 ```
 > <img width="1182" height="165" alt="image" src="https://github.com/user-attachments/assets/c3b793ce-2a8e-4812-82f3-8a13bc0cf479" />
-> 가중치 값이 무작위로 나열된 것이 아니고, 어떠한 패턴을 가지고 있다.
-> 예를 들어,  두 번째 줄의 왼쪽에서 여덟 번째 가중치는 왼쪽 3픽셀의 값이 다른 픽셀보다 상대적으로 낮다.(어두운 부분일수록 값이 낮음)  
+> 가중치 값이 무작위로 나열된 것이 아니고, 어떠한 패턴을 가지고 있다.  
+> 예를 들어, 두 번째 줄의 왼쪽에서 여덟 번째 가중치는 왼쪽 3픽셀의 값이 다른 픽셀보다 상대적으로 낮다.(어두운 부분일수록 값이 낮음)  
 > 이 가중치는 오른쪽에 놓인 직선을 만나면 크게 활성화될 것이다.
 ```python
 #비훈련 모델과의 비교
@@ -95,7 +95,7 @@ plt.ylabel('count')
 plt.show()
 ```
 > <img width="568" height="432" alt="image" src="https://github.com/user-attachments/assets/6cfd09a8-cc6b-4021-848f-239ba6ca552a" />
-> 훈련된 모델과 달리 가중치가 -0.15 ~ 0.15에서 비교적 고른 분포를 띠고 있다.
+> 훈련된 모델과 달리 가중치가 -0.15 ~ 0.15에서 비교적 고른 분포를 띠고 있다.  
 > 케라스가 신경망의 가중치를 처음 초기화 할 때 균등 분포에서 랜덤하게 값을 선택하기 때문이다.
 
 ```python
@@ -135,7 +135,6 @@ plt.show()
 ```python
 ankle_boot = train_input[0:1].reshape(-1, 28, 28, 1)/255.0
 feature_maps = conv_acti.predict(ankle_boot) # 첫 번째 합성곱 층의 출력(특성 맵)
-# 1/1 ━━━━━━━━━━━━━━━━━━━━ 1s 849ms/step
 
 print(feature_maps.shape)
 # (1, 28, 28, 32) 순서대로 (batch_size, out_height, out_width, filters)
@@ -148,10 +147,35 @@ for i in range(4):
         axs[i, j].axis('off')
 plt.show()
 ```
-> <img width="1182" height="625" alt="image" src="https://github.com/user-attachments/assets/0e2fa502-37be-486e-84af-2cf272e2ce81" />
-> 32개의 필터로 인해 입력 이미지에서 강하게 활성화된 부분을 보여준다.
-> (0,6)의 특성맵은 전체적으로 밝은 색이므로, 전면이 모두 칠해진 영역을 감지한다.
-> (2,7)의 특성맵의 가중치를 가진 24번째 필터는 수직선을 감지하는 것처럼 보인다.
+> <img width="1182" height="625" alt="image" src="https://github.com/user-attachments/assets/0e2fa502-37be-486e-84af-2cf272e2ce81" />  
+> 32개의 필터로 인해 입력 이미지에서 강하게 활성화된 부분을 보여준다. 훈련된 모델의 가중치를 출력한 것과 대조해보자.      
+> (0,6)의 특성맵은 전체적으로 밝은 색이므로, 전면이 모두 칠해진 영역을 감지한다.    
+> 24번째 필터는 수직선을 감지하는 것처럼 보인다. 따라서 (2,7)의 특성 맵은 이 필터가 감지한 수직선이 강하게 활성화 되었다.  
+
+```python
+# 두 번째 합성곱 층으로, 한 번의 풀링이 이루어진 특성 맵에 대해 합성곱 연산을 한다.
+conv2_acti = keras.Model(model.inputs, model.layers[2].output)
+feature_maps = conv2_acti.predict(ankle_boot)
+
+print(feature_maps.shape)
+# (1, 14, 14, 64) < 풀링이 이루어져 가로세로 크기가 절반으로 줄었다. 두 번째 합성곱 층의 필터 개수는 64개이다.
+
+fig, axs = plt.subplots(8, 8, figsize=(12,12))
+for i in range(8):
+    for j in range(8):
+        axs[i, j].imshow(feature_maps[0,:,:,i*8 + j])
+        axs[i, j].axis('off')
+plt.show()
+```
+> <img width="949" height="944" alt="image" src="https://github.com/user-attachments/assets/dc87365c-069a-4801-bd80-610710c8e9b6" />  
+> 두 번째 합성곱 층의 필터 크기는 (3, 3, 32)이다.(필터의 깊이는 입력의 길이와 같다.)   
+> 두 번째 합성곱 층의 첫 필터가 앞서 출력한 32개의 특성 맵과 곱해져 첫 번째 특성 맵이 된다.  
+> 이렇게 계산된 출력은 (14, 14, 32) 특성 맵에서 어떤 부위를 감지하는지 직관적으로 이해하기가 어렵다.  
+> 이런 현상은 합성곱 층을 많이 쌓을수록 심해진다. 이는 얕은 층의 합성곱 층에서는 이미지의 시각적인 정보를 감지하고,  
+> 깊은 층의 합성곱 층에서는 앞에서 감지한 시각적 정보를 바탕으로 추상적인 정보를 학습한다고 볼 수 있다.  
+> 즉 자세하고 국소적인 패턴의 학습에서 전반적·추상적 패턴을 학습한다고 볼 수 있다.
+
+
 
 
 
