@@ -1,4 +1,4 @@
-## LSTM의 구성 요소
+<img width="322" height="235" alt="image" src="https://github.com/user-attachments/assets/31e51c8e-c29f-4496-b30b-1f1a3713c26b" /><img width="313" height="238" alt="image" src="https://github.com/user-attachments/assets/ce15799c-9279-4710-8f85-4b713796adc8" />## LSTM의 구성 요소
 > <img width="552" height="285" alt="image" src="https://github.com/user-attachments/assets/e959dc77-91c8-4002-9421-ce970790291a" />
 
 
@@ -12,6 +12,8 @@ LSTM은 은닉 상태(Hidden State, 이하 ht)외에 셀 상태(Cell State, 이�
   * 현재 시점의 요약 정보   
   * 다음 LSTM 셀 및 출력층으로 전달됨  
   
+LSTM의 핵심은 cell state ct를 선형 경로로 유지하면서, gate를 통해 정보의 흐름을 조절하는 데 있다.  
+
 LSTM 셀은 특정 기능을 가진 뉴런 집합들로 구성된다. 뉴런 집합은 역할에 따라 4종류로 나뉜다.  
 1. Forget Gate: 이전 기억을 얼마나 유지할지 조절함  
 2. Input Gate: 새 정보를 반영할 비율을 조절함  
@@ -35,8 +37,18 @@ gate, 혹은 candidate라는 이름으로 부르고 있으나, 이들은 모두 
 > hidden state 차원마다 시퀀스를 표현하는 축이 다르기 때문에, 모든 gate와 candidate는 서로 다른 가중치와 절편을 가진다.  
 > LSTM이 주어진 시계열 데이터를 다차원적으로 해석하고 관리할 수 있게 만드는 원리인 것이다.
 
-### 망각 게이트(forget gate)
-> <img width="540" height="227" alt="image" src="https://github.com/user-attachments/assets/17aa59d2-60b5-415c-adb2-2e13efc1cd1b" />
+> <img width="322" height="235" alt="image" src="https://github.com/user-attachments/assets/dbeb1af9-6c62-4a60-8f20-642d1299642f" />
 
+
+
+### 망각 게이트(forget gate)
+> <img width="530" height="377" alt="image" src="https://github.com/user-attachments/assets/907f1ad6-0bf4-4280-bb5e-4946d03729c6" />
+
+망각 게이트는 기존에 가지고 있던 정보, 즉 장기 기억을 얼마나 유지할지 조절하는 역할이다.  
+
+### 입력 게이트(input gate)
+> <img width="529" height="225" alt="image" src="https://github.com/user-attachments/assets/f3f6f47d-e5fd-4ac3-8d71-df53715c40ec" />
+
+### 
 
 
