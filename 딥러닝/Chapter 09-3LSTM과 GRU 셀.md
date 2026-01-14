@@ -1,4 +1,4 @@
-<img width="322" height="235" alt="image" src="https://github.com/user-attachments/assets/31e51c8e-c29f-4496-b30b-1f1a3713c26b" /><img width="313" height="238" alt="image" src="https://github.com/user-attachments/assets/ce15799c-9279-4710-8f85-4b713796adc8" />## LSTM의 구성 요소
+## LSTM의 구성 요소
 > <img width="552" height="285" alt="image" src="https://github.com/user-attachments/assets/e959dc77-91c8-4002-9421-ce970790291a" />
 
 
