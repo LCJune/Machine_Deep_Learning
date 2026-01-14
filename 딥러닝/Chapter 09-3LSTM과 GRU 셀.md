@@ -41,21 +41,35 @@ gate, 혹은 candidate라는 이름으로 부르고 있으나, 이들은 모두 
 
 
 
-### 망각 게이트(forget gate)
+### 1.망각 게이트(forget gate)
 > <img width="537" height="335" alt="image" src="https://github.com/user-attachments/assets/902da107-9049-4b82-afd2-1e7a66159734" />   
 
 망각 게이트는 기존에 가지고 있던 정보, 즉 장기 기억을 얼마나 유지할지 조절(삭제)하는 역할이다.  
 
-### 입력 게이트(input gate)
+### 2.입력 게이트(input gate)
 > <img width="524" height="180" alt="image" src="https://github.com/user-attachments/assets/8928adfb-955c-4baa-887a-895abf39f9b0" />
 
-### 후보 기억(Candidate Cell State)
+### 3.후보 기억(Candidate Cell State)
 > <img width="539" height="287" alt="image" src="https://github.com/user-attachments/assets/05682dd5-935f-448e-8556-a71afd857035" />
 
-### Cell State 업데이트 
+### 4.Cell State 업데이트 
 > <img width="506" height="387" alt="image" src="https://github.com/user-attachments/assets/017b72aa-46fc-49ce-8e7a-098415899728" />
 
-###
+후보 기억이 생성되고 실제로 셀 상태에 반영될 때, 입력 게이트의 제어를 받는 것을 알 수 있다.  
 
+### 5.출력 게이트(output gate)
+> <img width="527" height="152" alt="image" src="https://github.com/user-attachments/assets/6c8ecef6-2698-4f43-8d5a-4bc74ede461a" />
+
+### 6.Hidden State 계산
+> <img width="489" height="204" alt="image" src="https://github.com/user-attachments/assets/b9ef5de2-eecc-41bf-a2da-a0ef2320a69b" />
+
+### 7.전체 흐름 요약(한 타임스텝)
+> <img width="260" height="168" alt="image" src="https://github.com/user-attachments/assets/4787cac2-16d5-4809-b99f-d496065cd47e" />  
+
+### 각 gate들이 기능을 갖게 되는 이유(핵심 관점)
+> <img width="385" height="201" alt="image" src="https://github.com/user-attachments/assets/9d5edcd6-58f5-4255-ba2b-572a6939e05c" />  
+
+각 gate들이 특정 기능을 수행할 수 있는 이유는 하드 코딩이 아니라,
+**손실함수를 최소화하는 방향으로 학습된 가중치 구조**이다.
 
 
