@@ -42,13 +42,20 @@ gate, 혹은 candidate라는 이름으로 부르고 있으나, 이들은 모두 
 
 
 ### 망각 게이트(forget gate)
-> <img width="530" height="377" alt="image" src="https://github.com/user-attachments/assets/907f1ad6-0bf4-4280-bb5e-4946d03729c6" />
+> <img width="537" height="335" alt="image" src="https://github.com/user-attachments/assets/902da107-9049-4b82-afd2-1e7a66159734" />   
 
-망각 게이트는 기존에 가지고 있던 정보, 즉 장기 기억을 얼마나 유지할지 조절하는 역할이다.  
+망각 게이트는 기존에 가지고 있던 정보, 즉 장기 기억을 얼마나 유지할지 조절(삭제)하는 역할이다.  
 
 ### 입력 게이트(input gate)
-> <img width="529" height="225" alt="image" src="https://github.com/user-attachments/assets/f3f6f47d-e5fd-4ac3-8d71-df53715c40ec" />
+> <img width="524" height="180" alt="image" src="https://github.com/user-attachments/assets/8928adfb-955c-4baa-887a-895abf39f9b0" />
 
-### 
+### 후보 기억(Candidate Cell State)
+> <img width="539" height="287" alt="image" src="https://github.com/user-attachments/assets/05682dd5-935f-448e-8556-a71afd857035" />
+
+### Cell State 업데이트 
+> <img width="506" height="387" alt="image" src="https://github.com/user-attachments/assets/017b72aa-46fc-49ce-8e7a-098415899728" />
+
+###
+
 
 
