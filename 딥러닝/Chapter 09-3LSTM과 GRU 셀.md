@@ -1,4 +1,5 @@
-# LSTM의 구성 요소
+# LSTM
+## LSTM의 구성 요소
 > <img width="552" height="285" alt="image" src="https://github.com/user-attachments/assets/e959dc77-91c8-4002-9421-ce970790291a" />
 
 
@@ -73,4 +74,4 @@ gate, 혹은 candidate라는 이름으로 부르고 있으나, 이들은 모두 
 **손실함수를 최소화하는 방향으로 학습된 가중치 구조**이다.
 
 
-## GRU
+# GRU
