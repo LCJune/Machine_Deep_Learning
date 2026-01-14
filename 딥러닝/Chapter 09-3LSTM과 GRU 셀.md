@@ -1,5 +1,5 @@
-# LSTM
-## LSTM의 구성 요소
+# LSTM(Long Short-Term Memory)
+## LSTM의 구조
 > <img width="552" height="285" alt="image" src="https://github.com/user-attachments/assets/e959dc77-91c8-4002-9421-ce970790291a" />
 
 
@@ -42,12 +42,12 @@ gate, 혹은 candidate라는 이름으로 부르고 있으나, 이들은 모두 
 
 
 
-### 1.망각 게이트(forget gate)
+### 1.망각 게이트(Forget Gate)
 > <img width="537" height="335" alt="image" src="https://github.com/user-attachments/assets/902da107-9049-4b82-afd2-1e7a66159734" />   
 
 망각 게이트는 기존에 가지고 있던 정보, 즉 장기 기억을 얼마나 유지할지 조절(삭제)하는 역할이다.  
 
-### 2.입력 게이트(input gate)
+### 2.입력 게이트(Input Gate)
 > <img width="524" height="180" alt="image" src="https://github.com/user-attachments/assets/8928adfb-955c-4baa-887a-895abf39f9b0" />
 
 ### 3.후보 기억(Candidate Cell State)
@@ -58,7 +58,7 @@ gate, 혹은 candidate라는 이름으로 부르고 있으나, 이들은 모두 
 
 후보 기억이 생성되고 실제로 셀 상태에 반영될 때, 입력 게이트의 제어를 받는 것을 알 수 있다.  
 
-### 5.출력 게이트(output gate)
+### 5.출력 게이트(Output Gate)
 > <img width="527" height="152" alt="image" src="https://github.com/user-attachments/assets/6c8ecef6-2698-4f43-8d5a-4bc74ede461a" />
 
 ### 6.Hidden State 계산
@@ -74,4 +74,43 @@ gate, 혹은 candidate라는 이름으로 부르고 있으나, 이들은 모두 
 **손실함수를 최소화하는 방향으로 학습된 가중치 구조** 덕분이다.
 
 
-# GRU
+# GRU(Gated Recurrent Unit)
+## GRU의 구조
+> <img width="862" height="608" alt="image" src="https://github.com/user-attachments/assets/01c7a34b-f573-4e0b-9c2c-e25f42bb2b05" />
+
+GRU(Gated Recurrent Unit)는 LSTM의 복잡도를 줄이면서도 장기 의존성(long-term dependency)을 효과적으로 학습하기 위해 제안된 순환 신경망 구조이다.  
+핵심적인 특징은 cell state를 별도로 두지 않고, 두 개의 게이트만으로 은닉 상태(hidden state)의 흐름을 제어한다는 점이다.  
+LSTM보다 가중치가 적기 때문에 계산량이 적지만, LSTM 못지 않은 성능을 낸다.  
+
+GRU의 핵심 구성 요소는 다음과 같다.
+1. Update Gate(갱신 게이트)
+2. Reset Gate(리셋 게이트)
+3. Candidate Hidden State(후보 은닉 상태)
+
+## GRU의 기능 단위
+### 1.갱신 게이트(Update Gate)
+> <img width="527" height="161" alt="image" src="https://github.com/user-attachments/assets/bcea2bf1-c75f-4063-8c93-d2e62d33de19" />
+
+LSTM의 Forget Gate와 Input Gate의 기능이 합쳐졌다고 보면 된다.    
+정보 흐름의 주 스위치이며, 장기 의존성 보존의 핵심 요소이다.  
+### 2.리셋 게이트(Reset Gate)
+> <img width="523" height="140" alt="image" src="https://github.com/user-attachments/assets/5afa49fd-bd4e-4dc5-8498-462bdee11de6" />
+
+과거를 초기화할지 여부를 결정한다.  
+문장 경계와 상태 전환 등, 국소적 패턴 학습에 유리하다.
+
+### 3.후보 은닉 상태(Candidate Hidden State)
+> <img width="569" height="111" alt="image" src="https://github.com/user-attachments/assets/27e4221a-6bfc-4265-aa97-e8e48f884d6f" />
+
+### 4.최종 Hidden State
+> <img width="539" height="113" alt="image" src="https://github.com/user-attachments/assets/6fa2e33d-e6c7-49f7-a698-4cc157820a0c" />
+
+GRU에서는 hidden state 하나가 곧 메모리이며, 출력과 내부 상태가 분리되지 않는다.  
+
+# 게이트의 역할 분화 원리
+LSTM과 GRU를 비롯한 CNN 또한 기본 원리는 다른 신경망들과 같다.  
+**출력을 바탕으로 손실을 계산하고, 이를 역전파하여 가중치를 갱신한다.**  
+<br />  
+
+LSTM과 GRU의 뉴런들 또한 이런 과정을 거쳐 학습되며, 이 과정에서 기능적 분화가 학습의 결과로 나타날 뿐이다.  
+
