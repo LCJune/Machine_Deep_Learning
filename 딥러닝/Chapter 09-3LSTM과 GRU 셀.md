@@ -71,7 +71,7 @@ gate, 혹은 candidate라는 이름으로 부르고 있으나, 이들은 모두 
 > <img width="385" height="201" alt="image" src="https://github.com/user-attachments/assets/9d5edcd6-58f5-4255-ba2b-572a6939e05c" />  
 
 각 gate들이 특정 기능을 수행할 수 있는 이유는 하드 코딩이 아니라,  
-**손실함수를 최소화하는 방향으로 학습된 가중치 구조**이다.
+**손실함수를 최소화하는 방향으로 학습된 가중치 구조** 덕분이다.
 
 
 # GRU
