@@ -101,11 +101,11 @@ sin 함수와 cos 함수를 사용해 토큰의 위치에 따라 변하는 벡�
 
 ### 인코더 블록
 위와 같은 구성 요소들을 종합한 트랜스포머의 인코더 블록은 다음과 같다.
-> <img width="438" height="558" alt="image" src="https://github.com/user-attachments/assets/ae13b6a9-7758-4741-a260-8a69121a139b" />
+> <img width="219" height="279" alt="image" src="https://github.com/user-attachments/assets/ae13b6a9-7758-4741-a260-8a69121a139b" />
 트랜스포머에서는 이러한 인코더 블록이 여러 개 연결되어 사용된다.  
 
 ### 디코더 블록
-> <img width="500" height="770" alt="image" src="https://github.com/user-attachments/assets/68747676-f74f-4316-bbc2-1bb4c6dd2451" />  
+> <img width="250" height="385" alt="image" src="https://github.com/user-attachments/assets/68747676-f74f-4316-bbc2-1bb4c6dd2451" />  
 
 디코더 블록의 기본 구조 또한 인코더 블록과 유사하나, 몇 가지 차이점이 존재한다.  
 바로  인코더가 출력한 임베딩 벡터를 입력으로 받는 멀티 헤드 어텐션 층이 존재한다는 것이다.  
@@ -125,6 +125,6 @@ sin 함수와 cos 함수를 사용해 토큰의 위치에 따라 변하는 벡�
 
 ### 트랜스포머의 전체 구조
 트랜스포머의 전체적인 구조도는 다음과 같다.  
-> <img width="1000" height="1228" alt="image" src="https://github.com/user-attachments/assets/dc67ea35-bb66-4a49-b53e-637f3de11e64" />
+> <img width="500" height="614" alt="image" src="https://github.com/user-attachments/assets/dc67ea35-bb66-4a49-b53e-637f3de11e64" />
 
 
